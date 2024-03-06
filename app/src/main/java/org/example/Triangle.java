@@ -60,9 +60,28 @@ public class Triangle {
     }
 
 
-    public Triangle(double x, double y, double z){
-        this.x = x;
-        this.y = y;
-        this.z = z;
+    public Triangle(Object x, Object y, Object z){
+        // validate the data
+        if (x == null || y == null || z == null){
+            throw new IllegalArgumentException("Sides of a triangle cannot be null");
+        } else if (
+            !(x instanceof Double) ||
+            !(y instanceof Double) ||
+            !(z instanceof Double)
+        ){
+            throw new IllegalArgumentException("Sides of a tringle must be of type Double");
+        }
+
+        Double dx = (Double) x;
+        Double dy = (Double) y;
+        Double dz = (Double) z;
+
+        if(dx <= 0 || dy <= 0 || dz <= 0){
+            throw new IllegalArgumentException("Sides of a triangle must be positive");
+        }
+        
+        this.x = (double) dx;
+        this.y = (double) dy;
+        this.z = (double) dz;
     }
 }
