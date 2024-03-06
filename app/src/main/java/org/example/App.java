@@ -10,5 +10,12 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
+
+        Triangle tr = new Triangle(3.0, 4.0, 5.0);
+        System.out.println(tr.getArea());
+
+        System.out.printf("Side 1: %.2f%n", tr.getX());
+        System.out.printf("Side 2: %.2f%n", tr.getY());
+        System.out.printf("Side 3: %.2f%n", tr.getZ());
     }
 }
