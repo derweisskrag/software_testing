@@ -17,5 +17,10 @@ public class App {
         System.out.printf("Side 1: %.2f%n", tr.getX());
         System.out.printf("Side 2: %.2f%n", tr.getY());
         System.out.printf("Side 3: %.2f%n", tr.getZ());
+
+        System.out.println(tr.isEquilateral());
+        System.out.println(tr.isIsosceles());
+        System.out.println(tr.isScalene());
+        System.out.println(tr.isTriangle());
     }
 }
