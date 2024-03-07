@@ -29,7 +29,11 @@ public class Validator {
         return "Unknown";
     }
 
-    public Validator(Triangle triangle){
-        this.tr = triangle;
+    public Validator(Object triangle){
+        if(!(triangle instanceof Triangle)){
+            throw new IllegalArgumentException("Must be of Triangle type!");
+        }
+
+        this.tr = (Triangle) triangle;
     }
 }

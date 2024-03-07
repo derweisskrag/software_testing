@@ -1,8 +1,8 @@
 package org.example;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ValidatorTest {
     @Test
@@ -22,5 +22,23 @@ public class ValidatorTest {
         // NotTriangle
         assertEquals("NotTriangle", 
             new Validator(new Triangle(4.0, 3.0, 8.0)).validateTriangle());
+    }
+
+
+    @Test
+    public void testCreateValidator(){
+        // does not accept strings
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Validator("s");
+        });
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Validator(new int[256]);
+        });
+
+        // does not throw
+        assertDoesNotThrow(() -> {
+            new Validator(new Triangle(2.0, 3.0, 4.0));
+        });
     }
 }

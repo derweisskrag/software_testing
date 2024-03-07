@@ -35,6 +35,12 @@ public class Triangle {
 
 
     public boolean isEquilateral(){
+        // check if the triangle valid
+        if(!this.isTriangle()){
+            return false;
+        }
+
+        // evaluate if equilateral
         return this.x == this.y && 
             this.y == this.z &&
             this.z == this.x;
@@ -42,11 +48,23 @@ public class Triangle {
 
 
     public boolean isScalene(){
+        // check if the triangle valid
+        if(!this.isTriangle()){
+            return false;
+        }
+
+        // evaluate if scalene
         return !this.isEquilateral() && !this.isIsosceles();
     }
 
 
     public boolean isIsosceles(){
+        // check if the triangle valid
+        if(!this.isTriangle()){
+            return false;
+        }
+
+        // evaluate if isolesces
         return (this.x == this.y ||
             this.y == this.z ||
             this.z == this.x) && !this.isEquilateral();
@@ -69,7 +87,7 @@ public class Triangle {
             !(y instanceof Double) ||
             !(z instanceof Double)
         ){
-            throw new IllegalArgumentException("Sides of a tringle must be of type Double");
+            throw new IllegalArgumentException("Sides of a triangle must be of type Double");
         }
 
         Double dx = (Double) x;
